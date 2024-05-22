@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout Auteur</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div layout:fragment="content">
+
+        <form th:action="@{/ajouterAuteur}" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nom d'auteur</label>
+                <input type="text" class="form-control w-50" id="name" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="dateNaissance" class="form-label">Date de naissance</label>
+                <input type="datetime-local" class="form-control w-50" id="dateNaissance" name="dateNaissance">
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary form-control w-50" value="Ajouter">Ajouter</button>
+        </form>
+
+
+</div>
+
+</body>
+</html>

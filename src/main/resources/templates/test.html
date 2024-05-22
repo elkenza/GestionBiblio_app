@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div layout:fragment="content">
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0" th:each="book:${books}">
+                    <div class="card">
+                        <div class="d-flex justify-content-between p-3">
+
+                            <div
+                                    class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                                    style="width: 35px; height: 35px;">
+
+                            </div>
+                        </div>
+                        <img th:src="${book.getImage()}"
+                             class="card-img-top" alt="Laptop" style="width:160px;padding-left: 60px"/>
+                        <div class="card-body">
+
+
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0"  style="color: #0a58ca" th:text="${book.getTitle()} "></h5>
+                                <h5 class="text-dark mb-0" th:text="${book.getNbPages()}+' pages'"> </h5>
+
+                            </div>
+
+                            <div class="d-flex justify-content-between mb-2">
+                                <p  class="text-muted mb-0">Écrit par:</p>
+                                <p class="text-muted mb-0"  th:each="auteur:${book.getAuteurs()}"> <span class="fw-bold"  th:text="${auteur.getName()}">
+                                </span></p>
+                                <div class="ms-auto text-warning">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <a th:href="@{addEmprunt(bookId=${book.getIdBook()},username=${#authentication.name})}" type="button" class="btn btn-primary">EMPRUNTER</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

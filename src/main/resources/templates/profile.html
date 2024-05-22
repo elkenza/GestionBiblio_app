@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+  <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div layout:fragment="content">
+  <section class="vh-100" style="background-color: #47b2e4;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-lg-6 mb-4 mb-lg-0">
+          <div class="card mb-3" style="border-radius: .5rem;">
+            <div class="row g-0">
+              <div class="col-md-4 gradient-custom text-center text-white"
+                   style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                     alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+
+                <i class="far fa-edit mb-5"></i>
+              </div>
+
+              <div class="col-md-8">
+                <div class="card-body p-4">
+                  <h2 th:text="'Bonjour '+${profile.getAdherent().getName()}"></h2>
+                  <br/>
+                  <h6>Votre Emprunt</h6>
+
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <h6>Date d'emprunt</h6>
+                      <p class="text-muted" th:text="${profile.getDateEmprunt()}"></p>
+                    </div>
+                    <div class="col-6 mb-3">
+                      <h6>Date de retour</h6>
+                      <p class="text-muted" th:text="${profile.getDateRetour()}"></p>
+                    </div>
+
+                  </div>
+                  <h6>Livre</h6>
+                  <hr class="mt-0 mb-4">
+                  <div class="row pt-1">
+                    <div class="col-6 mb-3">
+                      <img th:src="${profile.getBook().getImage()}"/>
+
+                      <a href="test">RETOUR</a>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
